@@ -7,7 +7,7 @@ let mongoose= require('mongoose')
 
 let Connect= async()=>{
     try {
-        mongoose.connect(`${process.env.DB_URL}/portfolio`)
+        mongoose.connect(`${process.env.DB_URI}/portfolio`)
         console.log('database is connected')
     } catch (error) {
         console.log(error)
