@@ -2,7 +2,7 @@ let mongoose= require('mongoose')
 // require('')
 
 // let uri= 'mongodb://localhost:27017/portfolio'
-const  URI  = process.env.DB_URI
+const  URI  = process.env.DB_LOCAL
 // require('../')
 
 let Connect= async()=>{
