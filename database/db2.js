@@ -1,27 +1,28 @@
-let mongoose=require('mongoose')
-let validator= require('validator')
+const mongoose = require('mongoose');
+const validator = require('validator');
 
-let Schema=new mongoose.Schema({
-    name:{
-        type:String,
-        required:true
+const Schema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
     },
-    companyName:{
-        type:String,
-        required:true
+    companyName: {
+        type: String,
+        required: true
     },
-    email:{
-        type:String,
-        validate(value){
-            if (!validator.isEmail) {
-                console.log('email is not validate');                
-            }
-
-        }
+    email: {
+        type: String,
+        validate: {
+            validator: (value) => {
+                return validator.isEmail(value);
+            },
+            message: 'Invalid email address'
+        },
+        required: true
     },
-    message:String
-})
+    message: String
+});
 
-let collection= new mongoose.model('collection',Schema)
+const collection = mongoose.model('collection', Schema);
 
-module.exports= collection
+module.exports = collection;
